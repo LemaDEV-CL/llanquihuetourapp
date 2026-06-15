@@ -1,0 +1,6 @@
+Ruta de los Volcanes;Aventura;85000
+Isla de Chiloé;Cultural;62000
+Crucero Lagos;Navegación;95000
+Gastronomía Local;Gastronómico;48000
+Saltos del Petrohué;Naturaleza;38000
+Ruta de la empanada;Gastronómico;80000
