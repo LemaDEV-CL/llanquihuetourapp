@@ -1,8 +1,10 @@
 package cl.lema.llanquihuetourapp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Clase que representa un tour turístico.
- *
  * Cada tour tiene un nombre, un tipo y un precio. Esta clase se usa como modelo
  * para guardar la información que viene desde el archivo de texto.
  *
@@ -25,7 +27,10 @@ public class Tour {
      * Precio del tour turístico.
      */
     private double precio;
-
+    /**
+     * Precio del tour turístico.
+     */
+    private List<Operador>  operadores;
     /**
      * Constructor vacío de la clase Tour.
      */
@@ -43,6 +48,7 @@ public class Tour {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
+        this.operadores = new ArrayList<>();
     }
 
     /**
@@ -98,7 +104,30 @@ public class Tour {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
+    /**
+     * Obtiene la lista de operadores
+     *
+     * @return operadores del tour.
+     */
+    public List<Operador> getOperadores() {
+        return operadores;
+    }
+    /**
+     * Asigna operadores disponibles del tour.
+     *
+     * @param operadores nuevo operador para tour.
+     */
+    public void setOperadores(List<Operador> operadores) {
+        this.operadores = operadores;
+    }
+    /**
+     * Método que agregar un nuevo operador a la lista de operadores.
+     *
+     * @param operador operador que se agrega a la lista de operadores.
+     */
+    public void agregarOperador(Operador operador) {
+        operadores.add(operador);
+    }
     /**
      * Devuelve una representación en texto del objeto Tour.
      *
@@ -106,10 +135,12 @@ public class Tour {
      */
     @Override
     public String toString() {
-        return "Tour{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", precio=" + precio +
-                '}';
+        return "Tour-> " +
+                "nombre: " + nombre + '|' +
+                " tipo: " + tipo + '|' +
+                " precio: " + precio +
+                " Operadores: " + operadores +
+                "\n"
+                ;
     }
 }

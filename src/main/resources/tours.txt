@@ -3,4 +3,28 @@ Isla de Chiloé;Cultural;62000
 Crucero Lagos;Navegación;95000
 Gastronomía Local;Gastronómico;48000
 Saltos del Petrohué;Naturaleza;38000
-Ruta de la empanada;Gastronómico;80000
+Ruta de la Empanada;Gastronómico;80000
+Ruta de la Seda;Cultural;70000
+Puerto Varas Patrimonial;Cultural;42000
+Frutillar y Teatro del Lago;Cultural;55000
+Kayak en Lago Llanquihue;Aventura;68000
+Trekking Parque Vicente Pérez Rosales;Naturaleza;72000
+Termas y Relajo del Sur;Bienestar;64000
+Avistamiento de Aves Australes;Naturaleza;36000
+Circuito Cervecero Artesanal;Gastronómico;52000
+Tour Fotográfico Osorno;Fotografía;47000
+Paseo Familiar Costanera Llanquihue;Familiar;30000
+Ruta de Colonos Alemanes;Histórico;46000
+Cabalgata Entre Bosques;Aventura;58000
+Mercado y sabores del Lago;Gastronómico;45000
+Pesca Recreativa en Ensenada;Deportivo;60000
+Tour Educativo Humedales;Educativo;28000
+Navegación al Atardecer;Navegación;75000
+Circuito de Artesanía Local;Cultural;34000
+Sendero Mirador Calbuco;Naturaleza;50000
+Experiencia Lechera Rural;Rural;39000
+Excursión Volcán Osorno;Aventura;89000
+Picnic Campestre Llanquihue;Familiar;33000
+Ruta del Kuchen y Café;Gastronómico;41000
+Bosque Nativo Nocturno;Ecoturismo;57000
+Tour de Cascadas del Sur;Naturaleza;53000
