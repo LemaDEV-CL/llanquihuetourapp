@@ -1,7 +1,5 @@
 package cl.lema.llanquihuetourapp.model;
 
-import java.util.List;
-
 /**
 
  * Representa un operador turístico asociado al sistema Llanquihue Tour.
@@ -30,13 +28,6 @@ public class Operador {
      * Dirección asociada al operador.
      */
     private Direccion direccion;
-
-    /**
-
-     * Lista de tours asociados al operador.
-     */
-    private List<Tour> tours;
-
     /**
 
      * Constructor con parámetros para crear un operador turístico.

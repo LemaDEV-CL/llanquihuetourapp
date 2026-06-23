@@ -46,7 +46,7 @@ public class Main {
         tours.get(0).agregarOperador(opGuia1);
         tours.get(15).agregarOperador(opComida1);
         System.out.println(tours.get(0).getOperadores());
-        System.out.println(tours.get(15).getNombre());
+        System.out.println(tours.get(15));
     }
 }
 
