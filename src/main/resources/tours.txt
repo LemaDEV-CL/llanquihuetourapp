@@ -1,30 +1,30 @@
-Ruta de los Volcanes;Aventura;85000
-Isla de Chiloé;Cultural;62000
-Crucero Lagos;Navegación;95000
-Gastronomía Local;Gastronómico;48000
-Saltos del Petrohué;Naturaleza;38000
-Ruta de la Empanada;Gastronómico;80000
-Ruta de la Seda;Cultural;70000
-Puerto Varas Patrimonial;Cultural;42000
-Frutillar y Teatro del Lago;Cultural;55000
-Kayak en Lago Llanquihue;Aventura;68000
-Trekking Parque Vicente Pérez Rosales;Naturaleza;72000
-Termas y Relajo del Sur;Bienestar;64000
-Avistamiento de Aves Australes;Naturaleza;36000
-Circuito Cervecero Artesanal;Gastronómico;52000
-Tour Fotográfico Osorno;Fotografía;47000
-Paseo Familiar Costanera Llanquihue;Familiar;30000
-Ruta de Colonos Alemanes;Histórico;46000
-Cabalgata Entre Bosques;Aventura;58000
-Mercado y sabores del Lago;Gastronómico;45000
-Pesca Recreativa en Ensenada;Deportivo;60000
-Tour Educativo Humedales;Educativo;28000
-Navegación al Atardecer;Navegación;75000
-Circuito de Artesanía Local;Cultural;34000
-Sendero Mirador Calbuco;Naturaleza;50000
-Experiencia Lechera Rural;Rural;39000
-Excursión Volcán Osorno;Aventura;89000
-Picnic Campestre Llanquihue;Familiar;33000
-Ruta del Kuchen y Café;Gastronómico;41000
-Bosque Nativo Nocturno;Ecoturismo;57000
-Tour de Cascadas del Sur;Naturaleza;53000
+Ruta de los Volcanes;4;Aventura;85000
+Isla de Chiloé;8;Cultural;62000
+Crucero Lagos;6;Navegación;95000
+Gastronomía Local;2;Gastronómico;48000
+Saltos del Petrohué;4;Naturaleza;38000
+Ruta de la Empanada;4;Gastronómico;80000
+Ruta de la Seda;6;Cultural;70000
+Puerto Varas Patrimonial;2;Cultural;42000
+Frutillar y Teatro del Lago;4;Cultural;55000
+Kayak en Lago Llanquihue;4;Aventura;68000
+Trekking Parque Vicente Pérez Rosales;6;Naturaleza;72000
+Termas y Relajo del Sur;6;Bienestar;64000
+Avistamiento de Aves Australes;4;Naturaleza;36000
+Circuito Cervecero Artesanal;4;Gastronómico;52000
+Tour Fotográfico Osorno;4;Fotografía;47000
+Paseo Familiar Costanera Llanquihue;2;Familiar;30000
+Ruta de Colonos Alemanes;4;Histórico;46000
+Cabalgata Entre Bosques;4;Aventura;58000
+Mercado y sabores del Lago;2;Gastronómico;45000
+Pesca Recreativa en Ensenada;6;Deportivo;60000
+Tour Educativo Humedales;2;Educativo;28000
+Navegación al Atardecer;2;Navegación;75000
+Circuito de Artesanía Local;2;Cultural;34000
+Sendero Mirador Calbuco;4;Naturaleza;50000
+Experiencia Lechera Rural;4;Rural;39000
+Excursión Volcán Osorno;8;Aventura;89000
+Picnic Campestre Llanquihue;4;Familiar;33000
+Ruta del Kuchen y Café;2;Gastronómico;41000
+Bosque Nativo Nocturno;4;Ecoturismo;57000
+Tour de Cascadas del Sur;6;Naturaleza;53000

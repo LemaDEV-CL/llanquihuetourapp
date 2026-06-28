@@ -11,41 +11,48 @@ import java.util.List;
  * @author Iván Lema
  * @version 1.0
  */
-public class Tour {
+public class ServicioTuristico {
 
     /**
-     * Nombre del tour turístico.
+     * Nombre del servicio turístico.
      */
     private String nombre;
 
     /**
-     * Tipo o categoría del tour turístico.
+     * Duración del servicio turístico.
+     */
+    private int duracionHoras;
+
+    /**
+     * Tipo o categoría del servicio turístico.
      */
     private String tipo;
 
     /**
-     * Precio del tour turístico.
+     * Precio del servicio turístico.
      */
     private double precio;
     /**
-     * Precio del tour turístico.
+     * Precio del servicio turístico.
      */
-    private List<Operador>  operadores;
+    protected List<Operador>  operadores;
     /**
      * Constructor vacío de la clase Tour.
      */
-    public Tour() {
+    public ServicioTuristico() {
     }
 
     /**
      * Constructor con parámetros para crear un tour con sus datos principales.
      *
      * @param nombre nombre del tour turístico.
+     * @param duracionHoras duración en horas del servicio turístico.
      * @param tipo tipo o categoría del tour turístico.
      * @param precio precio del tour turístico.
      */
-    public Tour(String nombre, String tipo, double precio) {
+    public ServicioTuristico(String nombre, int duracionHoras, String tipo, double precio) {
         this.nombre = nombre;
+        this.duracionHoras = duracionHoras;
         this.tipo = tipo;
         this.precio = precio;
         this.operadores = new ArrayList<>();
@@ -68,12 +75,30 @@ public class Tour {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    /**
+     * Obtiene la duración del tour.
+     *
+     * @return duración del tour.
+     */
+    public int getDuracionHoras() {
+        return duracionHoras;
+    }
+    /**
+     * Asigna la duración del tour.
+     *
+     * @param duracionHoras nueva duración del tour.
+     */
+    public void setDuracionHoras(int duracionHoras) {
+        this.duracionHoras = duracionHoras;
+    }
 
     /**
      * Obtiene el tipo del tour.
      *
      * @return tipo del tour.
      */
+
+
     public String getTipo() {
         return tipo;
     }
@@ -129,7 +154,7 @@ public class Tour {
         operadores.add(operador);
     }
     /**
-     * Devuelve una representación en texto del objeto Tour.
+     * Devuelve una representación en texto del objeto.
      *
      * @return texto con los datos del tour.
      */
@@ -137,10 +162,10 @@ public class Tour {
     public String toString() {
         return "Tour-> " +
                 "nombre: " + nombre + '|' +
+                "Duración: " + duracionHoras + '|' +
                 " tipo: " + tipo + '|' +
                 " precio: " + precio +
-                " Operadores: " + operadores +
-                "\n"
+                " Operadores: " + operadores
                 ;
     }
 }

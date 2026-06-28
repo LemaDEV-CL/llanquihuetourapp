@@ -38,9 +38,9 @@ public class Direccion {
      * @param ciudad valor recibido para la dirección.
      */
     public Direccion(String calle, String comuna, String ciudad) {
-        this.comuna = calle;
-        this.ciudad = comuna;
-        this.calle = ciudad;
+        this.calle = calle;
+        this.comuna = comuna;
+        this.ciudad = ciudad;
     }
 
     /**
