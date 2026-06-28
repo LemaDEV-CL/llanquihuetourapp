@@ -27,6 +27,7 @@ El objetivo principal es practicar conceptos básicos de Java y Programación Or
 * Usar métodos get y set.
 * Usar el método `toString()`.
 * Aplicar composición entre clases.
+* Aplicar los fundamentos de herencia y polimorfismo
 * Usar `ArrayList`.
 * Leer datos desde un archivo `.txt`.
 * Recorrer una lista de objetos.
