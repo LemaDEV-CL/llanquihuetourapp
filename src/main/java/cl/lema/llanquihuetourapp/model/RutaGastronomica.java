@@ -50,15 +50,11 @@ public class RutaGastronomica extends ServicioTuristico {
     }
 
     /**
-
-     * Devuelve una representación en texto de la ruta gastronómica.
-     *
-     * @return información completa de la ruta gastronómica.
+     * Método que muestra la información base de la superclase  mas los atributos de la subclase RutaGastronomica
      */
     @Override
-    public String toString() {
-        return "RutaGastronomica{" + super.toString() +
-                "numeroParadas=" + numeroParadas +
-                '}' + "\n";
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Numero paradas: " + numeroParadas);
     }
 }

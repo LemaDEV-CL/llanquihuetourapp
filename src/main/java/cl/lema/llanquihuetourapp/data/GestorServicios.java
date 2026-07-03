@@ -57,7 +57,7 @@ public class GestorServicios {
         if(listaDeServicioTuristicos.isEmpty()){
             cargarTours();
         }
-        return cargarTours();
+        return listaDeServicioTuristicos;
     }
     /**
      * Filtra los tours según una palabra recibida como parámetro.
@@ -93,7 +93,7 @@ public class GestorServicios {
      *
      * @return lista de servicios creados para ser llamados desde Main
      */
-    public ArrayList<ServicioTuristico> crearServicio(){
+    public ArrayList<ServicioTuristico> crearServicios(){
         ArrayList<ServicioTuristico> servicios = new ArrayList<>();
         RutaGastronomica rutaEmpanada = new RutaGastronomica("Ruta de la empanada", 8, "Gastronómico", 48000, 3);
         RutaGastronomica rutaDelMar = new RutaGastronomica("Ruta del mar", 8, "Gastronómico", 60000, 2);

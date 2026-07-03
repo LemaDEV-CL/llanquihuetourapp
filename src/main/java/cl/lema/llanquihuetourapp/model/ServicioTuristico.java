@@ -154,18 +154,13 @@ public class ServicioTuristico {
         operadores.add(operador);
     }
     /**
-     * Devuelve una representación en texto del objeto.
-     *
-     * @return texto con los datos del tour.
+     * Método que muestra la información base de la superclase.
      */
-    @Override
-    public String toString() {
-        return "Tour-> " +
-                "nombre: " + nombre + '|' +
-                "Duración: " + duracionHoras + '|' +
-                " tipo: " + tipo + '|' +
-                " precio: " + precio +
-                " Operadores: " + operadores
-                ;
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Duración horas: " + duracionHoras);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Precio: " + precio);
+        System.out.println("Operadores:" + operadores);
     }
 }

@@ -51,13 +51,11 @@ public class ExcursionCultural extends ServicioTuristico {
     }
 
     /**
-
-     * Devuelve una representación en texto de la excursión cultural.
-     *
-     * @return información completa de la excursión cultural.
+     * Método que muestra la información base de la superclase mas los atributos de la subclase Excursion cultural.
      */
     @Override
-    public String toString() {
-        return "ExcursionCultural{" + super.toString() + "lugarHistorico=" + lugarHistorico + '}' + "\n";
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Lugar histórico: " + lugarHistorico);
     }
 }

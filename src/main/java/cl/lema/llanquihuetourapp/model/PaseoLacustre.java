@@ -51,13 +51,11 @@ public class PaseoLacustre extends ServicioTuristico{
     }
 
     /**
-
-     * Devuelve una representación en texto del paseo lacustre.
-     *
-     * @return información completa del paseo lacustre.
+     * Método que muestra la información base de la superclase  mas los atributos de la subclase PaseoLacustre
      */
     @Override
-    public String toString() {
-        return "PaseoLacustre{" + super.toString() + "tipoEmbarcacion=" + tipoEmbarcacion + '}' + "\n";
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Paseo Lacustre: " + tipoEmbarcacion);
     }
 }

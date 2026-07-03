@@ -111,12 +111,8 @@ public class Operador {
      * @return texto con el nombre, tipo y dirección del operador.
      */
 
-@Override
+    @Override
     public String toString() {
-        return "Operador{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", direccion=" + direccion +
-                '}';
+        return nombre + "(" +  tipo + ")";
     }
 }

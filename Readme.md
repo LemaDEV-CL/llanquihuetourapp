@@ -6,38 +6,46 @@
 * Asignatura: Desarrollo Orientado a Objetos I
 * Institución: Duoc UC
 
-## Descripción
+## Descripción del proyecto
 
-Este proyecto fue actualizado en Java como parte de la actividad de la Semana 6 del ramo Desarrollo Orientado a Objetos I.
+Este proyecto corresponde al caso **Llanquihue Tour**, trabajado durante el ramo Desarrollo Orientado a Objetos I.
 
-Semana 5- La aplicación simula un sistema básico para la agencia de turismo Llanquihue Tour. El programa lee una lista de servicioTuristicos desde un archivo de texto, transforma esos datos en objetos, los almacena en una colección `ArrayList` y muestra la información por consola.
-Además, el sistema permite filtrar servicioTuristicos por tipo y asociar operadores turísticos a un servicioTuristico, aplicando conceptos básicos de Programación Orientada a Objetos.
+En las semanas anteriores se comenzó creando una aplicación básica para leer tours desde un archivo de texto, guardar datos en listas y mostrar información por consola.
 
-Semana 6 - La aplicación se actualiza con el objetivo de agregar una super clase junto con sub clases para la práctica y aprendizaje del concepto herencia.
+En la semana 6 se agregó una jerarquía de clases usando herencia, creando una clase padre llamada `ServicioTuristico` y clases hijas para representar distintos tipos de servicios.
 
-## Objetivo del proyecto
+En la semana 7 se mantiene esa jerarquía y se agrega el uso de polimorfismo, usando una colección de tipo `ServicioTuristico` donde se guardan objetos de distintas subclases. Luego, desde el `Main`, se recorre la lista y cada objeto muestra su información usando el método `mostrarInformacion()`.
 
-El objetivo principal es practicar conceptos básicos de Java y Programación Orientada a Objetos, tales como:
+## Objetivo de la semana 7
 
-* Crear clases.
-* Crear subclases
-* Crear objetos.
-* Usar atributos privados.
-* Usar constructores.
-* Usar métodos get y set.
-* Usar el método `toString()`.
-* Aplicar composición entre clases.
-* Aplicar los fundamentos de herencia y polimorfismo
-* Usar `ArrayList`.
-* Leer datos desde un archivo `.txt`.
-* Recorrer una lista de objetos.
-* Filtrar datos según una palabra.
-* Mostrar información por consola.
-* Organizar el proyecto en paquetes.
+El objetivo principal de esta semana es practicar el uso de polimorfismo en Java.
+
+Para eso se trabajó con una clase padre y varias clases hijas. Todas las clases hijas sobrescriben el método `mostrarInformacion()`, pero cada una muestra datos distintos según el tipo de servicio turístico.
+
+También se usa una lista de tipo `ServicioTuristico`, donde se agregan servicios de diferentes subclases como rutas gastronómicas, paseos lacustres y excursiones culturales.
+
+## Conceptos aplicados
+
+En este proyecto se aplican los siguientes conceptos:
+
+* Clases y objetos.
+* Atributos privados.
+* Constructores.
+* Métodos get y set.
+* Composición entre clases.
+* Herencia.
+* Uso de `extends`.
+* Uso de `super(...)`.
+* Sobrescritura de métodos con `@Override`.
+* Polimorfismo.
+* Uso de listas con `List` y `ArrayList`.
+* Recorrido de listas con `for-each`.
+* Organización del proyecto en paquetes.
+* Salida de información por consola.
 
 ## Estructura del proyecto
 
-El proyecto está organizado en paquetes según la responsabilidad de cada clase:
+El proyecto está organizado en paquetes para separar mejor las responsabilidades de cada clase.
 
 ```text
 LlanquihueTourApp/
@@ -54,10 +62,10 @@ LlanquihueTourApp/
         │               ├── model/
         │               │   ├── Direccion.java
         │               │   ├── Operador.java
-        │               │   └── ServicioTuristico.java
+        │               │   ├── ServicioTuristico.java
+        │               │   ├── RutaGastronomica.java
+        │               │   ├── PaseoLacustre.java
         │               │   └── ExcursionCultural.java
-        │               │   └── PaseoLacustre.java
-        │               │   └── RutaGastronomica.java                        
         │               └── ui/
         │                   └── Main.java
         └── resources/
@@ -68,20 +76,22 @@ LlanquihueTourApp/
 
 ### `model`
 
-Contiene las clases que representan los objetos principales del sistema.
+Contiene las clases principales del sistema.
+
+En este paquete están las clases que representan los servicios turísticos, operadores y direcciones.
 
 Clases:
 
 * `ServicioTuristico`
+* `RutaGastronomica`
+* `PaseoLacustre`
+* `ExcursionCultural`
 * `Operador`
 * `Direccion`
-* `ExcursionCultural`
-* `PaseoLacustre`
-* `RutaGastronomica`
 
 ### `data`
 
-Contiene la clase encargada de leer y gestionar los datos provenientes del archivo de texto.
+Contiene la clase encargada de crear y gestionar los servicios turísticos.
 
 Clase:
 
@@ -95,126 +105,159 @@ Clase:
 
 * `Main`
 
-## Clases del proyecto
+## Clases principales
 
 ### `ServicioTuristico`
 
-La clase `ServicioTuristico` representa un servicio turístico de Llanquihue Tour como clase padre.
+Es la clase padre o superclase del proyecto.
 
-Contiene los siguientes datos:
+Representa un servicio turístico general de Llanquihue Tour.
 
-* Nombre del servicioTuristico.
-* Duración del servicioTuristico.
-* Tipo de servicioTuristico.
-* Precio del servicioTuristico.
+Contiene datos comunes como:
+
+* Nombre.
+* Duración en horas.
+* Tipo.
+* Precio.
 * Lista de operadores asociados.
 
-También incluye constructores, métodos get y set, método `toString()` y un método para agregar operadores al servicioTuristico.
+También tiene el método `mostrarInformacion()`, que muestra los datos generales del servicio turístico.
+
+### `RutaGastronomica`
+
+Es una subclase que hereda de `ServicioTuristico`.
+
+Representa un servicio turístico de tipo gastronómico.
+
+Además de los datos heredados desde `ServicioTuristico`, agrega el atributo:
+
+* `numeroParadas`
+
+Esta clase sobrescribe el método `mostrarInformacion()` para mostrar también la cantidad de paradas de la ruta.
+
+### `PaseoLacustre`
+
+Es una subclase que hereda de `ServicioTuristico`.
+
+Representa un paseo relacionado con lagos o navegación.
+
+Además de los datos heredados desde `ServicioTuristico`, agrega el atributo:
+
+* `tipoEmbarcacion`
+
+Esta clase sobrescribe el método `mostrarInformacion()` para mostrar también el tipo de embarcación utilizada.
+
+### `ExcursionCultural`
+
+Es una subclase que hereda de `ServicioTuristico`.
+
+Representa una excursión cultural.
+
+Además de los datos heredados desde `ServicioTuristico`, agrega el atributo:
+
+* `lugarHistorico`
+
+Esta clase sobrescribe el método `mostrarInformacion()` para mostrar también el lugar histórico relacionado con la excursión.
 
 ### `Operador`
 
-La clase `Operador` representa a una persona o empresa que participa en la ejecución de un servicioTuristico.
+Representa a una persona o empresa que participa en un servicio turístico.
 
-Puede representar, por ejemplo:
+Puede ser, por ejemplo:
 
 * Transporte.
 * Alimentación.
 * Guía turístico.
-* Otro proveedor relacionado al servicio.
 
-Contiene los siguientes datos:
-
-* Nombre del operador.
-* Tipo de operador.
-* Dirección del operador.
-
-Esta clase aplica composición, ya que contiene un objeto de tipo `Direccion`.
+Esta clase usa composición porque tiene un objeto de tipo `Direccion`.
 
 ### `Direccion`
 
-La clase `Direccion` representa la ubicación asociada a un operador.
+Representa los datos de ubicación de un operador.
 
-Contiene los siguientes datos:
+Contiene:
 
 * Calle.
 * Comuna.
 * Ciudad.
 
-Esta clase permite separar la información de dirección en una clase propia, aplicando organización y reutilización de código.
-
 ### `GestorServicios`
 
-La clase `GestorServicios` se encarga de leer el archivo `tours.txt`.
+Esta clase se encarga de gestionar los servicios del proyecto.
 
-Sus principales funciones son:
+Actualmente tiene métodos para:
 
-* Leer el archivo de texto línea por línea.
-* Separar los datos usando `split(";")`.
-* Crear objetos de tipo `ServicioTuristico`.
-* Agregar los servicioTuristicos a un `ArrayList`.
-* Obtener la lista completa de servicioTuristicos.
-* Filtrar servicioTuristicos según su tipo.
-* Mostrar los resultados filtrados por consola.
-* Crear una lista de servicios de las clases hijas heredadas de ServicioTuristico
+* Cargar servicios desde el archivo `tours.txt`.
+* Obtener la lista de servicios.
+* Filtrar servicios por tipo.
+* Crear servicios de prueba para demostrar herencia y polimorfismo.
+
+Para la semana 7, el método más importante es `crearServicios()`, ya que ahí se crean objetos de distintas subclases y se agregan a una lista de tipo `ServicioTuristico`.
 
 ### `Main`
 
-La clase `Main` es la clase principal del programa.
+Es la clase principal del programa.
 
-Desde esta clase se ejecuta la aplicación. En ella se crea un objeto de `GestorServicios`, 
-se carga la lista de servicioTuristicos, se muestran los datos por consola, 
-se aplica un filtro por tipo y se realiza un ejemplo de asignación de operadores a un servicioTuristico.
-Se agregan ejemplos de lectura en consola para objetos creados a partir de las clases hijas heredadas de ServicioTuristico.
+En esta clase se crea un objeto de `GestorServicios`, se obtiene una lista de servicios turísticos y se recorre la lista con un ciclo `for-each`.
+
+Aunque la lista está declarada como `List<ServicioTuristico>`, dentro de ella hay objetos de distintas clases hijas:
+
+* `RutaGastronomica`
+* `PaseoLacustre`
+* `ExcursionCultural`
+
+Al llamar al método `mostrarInformacion()`, cada objeto muestra su propia información. Esto permite demostrar el uso básico de polimorfismo.
+
+## Funcionamiento del programa
+
+Al ejecutar el programa:
+
+1. Se crea un objeto de la clase `GestorServicios`.
+2. Se llama al método `crearServicios()`.
+3. Se crean servicios turísticos de distintos tipos.
+4. Se agregan operadores a algunos servicios.
+5. Se recorre la lista de servicios usando `for-each`.
+6. Se llama al método `mostrarInformacion()` desde una referencia de tipo `ServicioTuristico`.
+7. Cada subclase muestra su información correspondiente en consola.
+
+## Ejemplo del uso de polimorfismo
+
+En el programa se usa una lista declarada de esta forma:
+
+```java
+List<ServicioTuristico> servicios = gestor.crearServicios();
+```
+
+En esa lista se guardan distintos tipos de servicios turísticos.
+
+Luego se recorre con:
+
+```java
+for (ServicioTuristico servicioTuristico : servicios) {
+    servicioTuristico.mostrarInformacion();
+}
+```
+
+Aunque todos se recorren como `ServicioTuristico`, cada objeto ejecuta su propio método `mostrarInformacion()` según la clase real a la que pertenece.
+
+Esto permite aplicar polimorfismo de forma básica.
 
 ## Archivo de datos
 
-El archivo `tours.txt` se encuentra en la carpeta:
+El archivo `tours.txt` se encuentra en:
 
 ```text
 src/main/resources/tours.txt
 ```
 
-Cada línea del archivo tiene la siguiente estructura:
+Este archivo se mantiene desde las semanas anteriores, donde se trabajó lectura de datos desde archivo de texto.
 
-```text
-nombre;duracionHoras;tipo;precio
-```
+Para la semana 7, el foco principal está en la creación de servicios de prueba desde `GestorServicios`, para mostrar herencia y polimorfismo.
 
-Ejemplo:
-
-```text
-Gastronomía Local;6;Gastronómico;48000
-```
-
-El programa separa los datos usando el punto y coma `;`.
-
-## Funcionamiento del programa
-
-Cuando se ejecuta el programa:
-
-1. Se crea un objeto de la clase `GestorServicios`.
-2. Se lee el archivo `tours.txt`.
-3. Se crea un objeto `ServicioTuristico` por cada línea del archivo.
-4. Cada servicioTuristico se agrega a un `ArrayList`.
-5. Se muestra la lista completa de servicioTuristicos por consola.
-6. Se filtran los servicioTuristicos según un tipo indicado.
-7. Se muestra el resultado filtrado en consola.
-8. Se crean operadores de ejemplo.
-9. Se agregan operadores a un servicioTuristico.
-10. Se muestra información del servicioTuristico y sus operadores asociados.
-11. Se crean nuevos servicios turisticos de las clases creadas ExcursionCultural, PaseoLacustre y RutaGastronomica a través del método crearServicio();
-12. Se agregan operadores a las instancias
-13. Se muestran en consola
-
-## Instrucciones para ejecutar
+## Cómo ejecutar el proyecto
 
 1. Abrir el proyecto en IntelliJ IDEA.
-2. Verificar que el archivo `tours.txt` esté en la carpeta:
-
-```text
-src/main/resources/
-```
-
+2. Verificar que el proyecto cargue correctamente con Maven.
 3. Abrir la clase `Main.java`, ubicada en:
 
 ```text
@@ -222,16 +265,28 @@ src/main/java/cl/lema/llanquihuetourapp/ui/Main.java
 ```
 
 4. Ejecutar el método `main`.
-5. Revisar los resultados en la consola.
+5. Revisar la salida en consola.
+
+## Qué se muestra en consola
+
+Al ejecutar el programa se muestra información de distintos servicios turísticos, como:
+
+* Rutas gastronómicas.
+* Paseos lacustres.
+* Excursiones culturales.
+* Operadores asociados a algunos servicios.
+
+Cada servicio muestra sus datos generales y también su dato específico según la subclase correspondiente.
 
 ## Tecnologías utilizadas
 
-* Java
-* IntelliJ IDEA
-* Maven
-* Archivo de texto `.txt`
+* Java.
+* IntelliJ IDEA.
+* Maven.
+* Archivo de texto `.txt`.
 
 ## Estado del proyecto
 
-Proyecto básico realizado para practicar Programación Orientada a Objetos en Java, lectura de archivos, creación de objetos, uso de colecciones, filtros simples, composición entre clases y organización modular del código.
-Semana 6 - Proyecto actualizado para la práctica y aprendizaje de los fundamentos de herencia y polimorfismo.
+Proyecto actualizado hasta la semana 7 del ramo Desarrollo Orientado a Objetos I.
+
+En esta versión se mantiene lo trabajado anteriormente y se agrega el uso de herencia y polimorfismo mediante una jerarquía de servicios turísticos.
