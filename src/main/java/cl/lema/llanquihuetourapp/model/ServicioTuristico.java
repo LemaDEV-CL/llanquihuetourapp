@@ -1,8 +1,5 @@
 package cl.lema.llanquihuetourapp.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Clase que representa un tour turístico.
  * Cada tour tiene un nombre, un tipo y un precio. Esta clase se usa como modelo
@@ -33,10 +30,6 @@ public class ServicioTuristico {
      */
     private double precio;
     /**
-     * Precio del servicio turístico.
-     */
-    protected List<Operador>  operadores;
-    /**
      * Constructor vacío de la clase Tour.
      */
     public ServicioTuristico() {
@@ -55,7 +48,6 @@ public class ServicioTuristico {
         this.duracionHoras = duracionHoras;
         this.tipo = tipo;
         this.precio = precio;
-        this.operadores = new ArrayList<>();
     }
 
     /**
@@ -130,30 +122,6 @@ public class ServicioTuristico {
         this.precio = precio;
     }
     /**
-     * Obtiene la lista de operadores
-     *
-     * @return operadores del tour.
-     */
-    public List<Operador> getOperadores() {
-        return operadores;
-    }
-    /**
-     * Asigna operadores disponibles del tour.
-     *
-     * @param operadores nuevo operador para tour.
-     */
-    public void setOperadores(List<Operador> operadores) {
-        this.operadores = operadores;
-    }
-    /**
-     * Método que agregar un nuevo operador a la lista de operadores.
-     *
-     * @param operador operador que se agrega a la lista de operadores.
-     */
-    public void agregarOperador(Operador operador) {
-        operadores.add(operador);
-    }
-    /**
      * Método que muestra la información base de la superclase.
      */
     public void mostrarInformacion() {
@@ -161,6 +129,5 @@ public class ServicioTuristico {
         System.out.println("Duración horas: " + duracionHoras);
         System.out.println("Tipo: " + tipo);
         System.out.println("Precio: " + precio);
-        System.out.println("Operadores:" + operadores);
     }
 }

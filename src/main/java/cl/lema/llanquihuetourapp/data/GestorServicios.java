@@ -9,23 +9,27 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
 /**
- * Clase encargada de gestionar los datos de los tours.*
- * Esta clase lee la información desde un archivo de texto, crea objetos de tipo y permite obtener la lista completa o una lista filtrada por tipo.
+ * Gestiona los servicios turísticos utilizados en las etapas anteriores del proyecto.
+ * Lee tours desde un archivo, permite filtrarlos y también crea servicios de ejemplo.
  *
  * @author Iván Lema
  * @version 1.0
  */
 public class GestorServicios {
-    /**
-     * Ruta del archivo de texto donde están guardados los tours.
-     */
+
+    /** Ruta del archivo donde se encuentran los tours. */
     private static final String FILE_TOURS = "src/main/resources/tours.txt";
+
+    /** Lista que almacena los servicios turísticos cargados. */
     ArrayList<ServicioTuristico> listaDeServicioTuristicos = new ArrayList<>();
+
     /**
-     * Genera una lista de tours leyendo los datos desde el archivo de texto.*
-     * Cada línea del archivo debe tener el siguiente formato:
-     * nombre; tipo; precio
+     * Carga los tours desde el archivo de texto.
+     * Cada línea válida debe contener nombre, duración, tipo y precio separados por punto y coma.
+     *
+     * @return lista de servicios turísticos cargados desde el archivo.
      */
     public ArrayList<ServicioTuristico> cargarTours(){
         listaDeServicioTuristicos.clear();
@@ -48,10 +52,11 @@ public class GestorServicios {
         }
         return listaDeServicioTuristicos;
     }
+
     /**
-     * Devuelve la lista completa de tours generada desde el archivo de texto.
+     * Obtiene la lista completa de tours. Si está vacía, primero intenta cargarla.
      *
-     * @return una lista con todos los tours leídos desde el archivo.
+     * @return lista completa de servicios turísticos.
      */
     public ArrayList<ServicioTuristico> obtenerLista(){
         if(listaDeServicioTuristicos.isEmpty()){
@@ -59,13 +64,12 @@ public class GestorServicios {
         }
         return listaDeServicioTuristicos;
     }
+
     /**
-     * Filtra los tours según una palabra recibida como parámetro.
-     * El filtro se realiza comparando la palabra con el tipo de cada tour.
-     * Si el tipo del tour contiene la palabra buscada, se agrega a una nueva lista.
+     * Filtra los tours comparando la palabra recibida con su tipo.
      *
-     * @param palabraFiltro palabra que se usará para filtrar por tipo de tour.
-     * @return una lista con los tours que coinciden con el filtro indicado.
+     * @param palabraFiltro texto utilizado para filtrar los servicios.
+     * @return lista con los tours que coinciden con el filtro.
      */
     private ArrayList<ServicioTuristico> filtrarPorTipo(String palabraFiltro){
         ArrayList<ServicioTuristico> listaFiltrada = new ArrayList<>();
@@ -76,10 +80,11 @@ public class GestorServicios {
         }
         return listaFiltrada;
     }
+
     /**
-     * Muestra por consola los tours filtrados según la palabra recibida.
+     * Muestra por consola los tours que coinciden con una palabra de búsqueda.
      *
-     * @param palabra palabra que se usará para filtrar los tours antes de mostrarlos.
+     * @param palabra texto utilizado para filtrar los tours.
      */
     public void mostrarFiltro(String palabra){
         if (palabra != null && !palabra.isBlank()) {
@@ -88,10 +93,11 @@ public class GestorServicios {
             System.out.println("Debe ingresar una palabra válida");
         }
     }
+
     /**
-     * Método para creación de servicios de ejemplos requeridos en la tarea de la semana 6.
+     * Crea servicios de ejemplo para demostrar herencia y polimorfismo.
      *
-     * @return lista de servicios creados para ser llamados desde Main
+     * @return lista con rutas gastronómicas, paseos lacustres y excursiones culturales.
      */
     public ArrayList<ServicioTuristico> crearServicios(){
         ArrayList<ServicioTuristico> servicios = new ArrayList<>();
