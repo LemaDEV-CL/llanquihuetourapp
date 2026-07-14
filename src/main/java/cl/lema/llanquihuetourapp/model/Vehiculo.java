@@ -10,10 +10,10 @@ package cl.lema.llanquihuetourapp.model;
 public class Vehiculo implements Registrable {
 
     /** Patente identificadora del vehículo. */
-    String patente;
+    private String patente;
 
     /** Tipo de vehículo registrado. */
-    String tipo;
+    private String tipo;
 
     /**
      * Crea un vehículo con su patente y tipo.

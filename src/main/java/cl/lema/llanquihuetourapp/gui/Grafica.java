@@ -3,7 +3,6 @@ package cl.lema.llanquihuetourapp.gui;
 import cl.lema.llanquihuetourapp.data.GestorEntidades;
 import cl.lema.llanquihuetourapp.model.ColaboradorExterno;
 import cl.lema.llanquihuetourapp.model.GuiaTuristico;
-import cl.lema.llanquihuetourapp.model.Registrable;
 import cl.lema.llanquihuetourapp.model.Vehiculo;
 
 import javax.swing.*;
