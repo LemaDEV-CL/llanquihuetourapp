@@ -1,4 +1,4 @@
-package cl.lema.llanquihuetourapp.model;
+package cl.lema.llanquihuetourapp.model.servicios;
 
 /**
 
@@ -9,7 +9,6 @@ package cl.lema.llanquihuetourapp.model;
 public class RutaGastronomica extends ServicioTuristico {
 
     /**
-
      * Número de paradas consideradas en la ruta gastronómica.
      */
     private int numeroParadas;
@@ -56,5 +55,15 @@ public class RutaGastronomica extends ServicioTuristico {
     public void mostrarInformacion() {
         super.mostrarInformacion();
         System.out.println("Numero paradas: " + numeroParadas);
+    }
+
+    /**
+     * Método toString.
+     */
+    @Override
+    public String toString() {
+        return "RutaGastronomica{" +
+                "numeroParadas=" + numeroParadas +
+                '}';
     }
 }

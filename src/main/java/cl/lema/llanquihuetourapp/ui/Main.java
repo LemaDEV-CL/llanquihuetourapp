@@ -1,13 +1,8 @@
 package cl.lema.llanquihuetourapp.ui;
 
-import cl.lema.llanquihuetourapp.data.GestorEntidades;
 import cl.lema.llanquihuetourapp.data.GestorServicios;
 import cl.lema.llanquihuetourapp.gui.Grafica;
-import cl.lema.llanquihuetourapp.model.ServicioTuristico;
-
 import javax.swing.*;
-import java.awt.*;
-import java.util.List;
 
 /**
  * Clase principal de Llanquihue Tour.
@@ -19,9 +14,10 @@ import java.util.List;
 public class Main {
 
     /**
-     * Inicia la aplicación, crea la ventana, la centra y la hace visible.
+     * Inicia la aplicación creando la ventana.
      *
      */
+
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {

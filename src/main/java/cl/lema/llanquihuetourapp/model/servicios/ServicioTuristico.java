@@ -1,4 +1,4 @@
-package cl.lema.llanquihuetourapp.model;
+package cl.lema.llanquihuetourapp.model.servicios;
 
 /**
  * Clase que representa un tour turístico.
@@ -29,6 +29,7 @@ public class ServicioTuristico {
      * Precio del servicio turístico.
      */
     private double precio;
+
     /**
      * Constructor vacío de la clase Tour.
      */
@@ -129,5 +130,17 @@ public class ServicioTuristico {
         System.out.println("Duración horas: " + duracionHoras);
         System.out.println("Tipo: " + tipo);
         System.out.println("Precio: " + precio);
+    }
+    /**
+     * Método toString.
+     */
+    @Override
+    public String toString() {
+        return "ServicioTuristico{" +
+                "nombre='" + nombre + '\'' +
+                ", duracionHoras=" + duracionHoras +
+                ", tipo='" + tipo + '\'' +
+                ", precio=" + precio +
+                '}';
     }
 }

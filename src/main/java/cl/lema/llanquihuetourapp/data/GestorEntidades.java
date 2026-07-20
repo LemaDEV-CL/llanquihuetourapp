@@ -1,6 +1,10 @@
 package cl.lema.llanquihuetourapp.data;
 
-import cl.lema.llanquihuetourapp.model.*;
+import cl.lema.llanquihuetourapp.model.entidades.ColaboradorExterno;
+import cl.lema.llanquihuetourapp.model.entidades.GuiaTuristico;
+import cl.lema.llanquihuetourapp.model.entidades.Registrable;
+import cl.lema.llanquihuetourapp.model.entidades.Vehiculo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,13 +45,13 @@ public class GestorEntidades {
         for (Registrable registrable : entidades) {
 
             if (registrable instanceof GuiaTuristico) {
-                sb.append("Guía: ");
+                sb.append("-> Guía: ");
             }
             if (registrable instanceof Vehiculo) {
-                sb.append("Vehículo: ");
+                sb.append("-> Vehículo: ");
             }
             if (registrable instanceof ColaboradorExterno) {
-                sb.append("Colaborador: ");
+                sb.append("-> Colaborador: ");
             }
             sb.append(registrable.mostrarResumen());
         }

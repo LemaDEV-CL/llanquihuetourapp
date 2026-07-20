@@ -1,13 +1,12 @@
 package cl.lema.llanquihuetourapp.data;
 
-import cl.lema.llanquihuetourapp.model.ExcursionCultural;
-import cl.lema.llanquihuetourapp.model.PaseoLacustre;
-import cl.lema.llanquihuetourapp.model.RutaGastronomica;
-import cl.lema.llanquihuetourapp.model.ServicioTuristico;
+import cl.lema.llanquihuetourapp.excepciones.DatoInvalidoException;
+import cl.lema.llanquihuetourapp.model.servicios.ExcursionCultural;
+import cl.lema.llanquihuetourapp.model.servicios.PaseoLacustre;
+import cl.lema.llanquihuetourapp.model.servicios.RutaGastronomica;
+import cl.lema.llanquihuetourapp.model.servicios.ServicioTuristico;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -19,11 +18,8 @@ import java.util.ArrayList;
  */
 public class GestorServicios {
 
-    /** Ruta del archivo donde se encuentran los tours. */
-    private static final String FILE_TOURS = "src/main/resources/tours.txt";
-
     /** Lista que almacena los servicios turísticos cargados. */
-    ArrayList<ServicioTuristico> listaDeServicioTuristicos = new ArrayList<>();
+    private final ArrayList<ServicioTuristico> listaDeServiciosTuristicos = new ArrayList<>();
 
     /**
      * Carga los tours desde el archivo de texto.
@@ -31,26 +27,72 @@ public class GestorServicios {
      *
      * @return lista de servicios turísticos cargados desde el archivo.
      */
-    public ArrayList<ServicioTuristico> cargarTours(){
-        listaDeServicioTuristicos.clear();
-        try(BufferedReader br = new BufferedReader(new FileReader(FILE_TOURS))){
+    public ArrayList<ServicioTuristico> cargarTours() {
+
+        listaDeServiciosTuristicos.clear();
+
+        InputStream archivo = GestorServicios.class.getResourceAsStream("/tours.txt");
+
+        if (archivo == null) {
+            System.out.println("No se encontró el archivo tours.txt");
+            return listaDeServiciosTuristicos;
+        }
+
+        int numeroLinea = 0;
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(archivo))) {
+
             String linea;
+
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(";");
-                if(partes.length == 4){
-                    ServicioTuristico servicioTuristico = new ServicioTuristico(
-                            partes[0],
-                            Integer.parseInt(partes[1]),
-                            partes[2],
-                            Double.parseDouble(partes[3])
-                    );
-                    listaDeServicioTuristicos.add(servicioTuristico);
+                numeroLinea++;
+                if (linea.isBlank()) {
+                    continue;
+                }
+
+                String[] partes = linea.split(";", -1);
+
+                if (partes.length != 4) {
+                    System.out.println( "La línea " + numeroLinea + " no contiene 4 datos" );
+                    continue;
+                }
+
+                String nombre = partes[0].trim();
+                String duracionTexto = partes[1].trim();
+                String tipo = partes[2].trim();
+                String precioTexto = partes[3].trim();
+
+                try {
+                    if (nombre.isEmpty() || duracionTexto.isEmpty() || tipo.isEmpty() || precioTexto.isEmpty()) {
+                        throw new DatoInvalidoException( "contiene uno o más campos vacíos" );
+                    }
+
+                    int duracion = Integer.parseInt(duracionTexto);
+                    double precio = Double.parseDouble(precioTexto);
+
+                    if (duracion <= 0) { throw new DatoInvalidoException( "la duración debe ser mayor que cero" );
+                    }
+
+                    if (precio < 0) {
+                        throw new DatoInvalidoException( "el precio no puede ser negativo" );
+                    }
+
+                    ServicioTuristico servicioTuristico = new ServicioTuristico( nombre, duracion, tipo, precio );
+                    listaDeServiciosTuristicos.add( servicioTuristico );
+
+                } catch (NumberFormatException e) {
+                    System.out.println( "Línea " + numeroLinea + " omitida por formato numérico incorrecto" );
+
+                } catch (DatoInvalidoException e) {
+                    System.out.println( "Línea " + numeroLinea + " omitida porque " + e.getMessage() );
                 }
             }
+
         } catch (IOException e) {
-            System.out.println("Error al leer la lista de tours: " + e.getMessage());
+            System.out.println( "Error al leer la lista de tours: " + e.getMessage() );
         }
-        return listaDeServicioTuristicos;
+
+        return listaDeServiciosTuristicos;
     }
 
     /**
@@ -59,10 +101,25 @@ public class GestorServicios {
      * @return lista completa de servicios turísticos.
      */
     public ArrayList<ServicioTuristico> obtenerLista(){
-        if(listaDeServicioTuristicos.isEmpty()){
+        if(listaDeServiciosTuristicos.isEmpty()){
             cargarTours();
         }
-        return listaDeServicioTuristicos;
+        return listaDeServiciosTuristicos;
+    }
+
+    /**
+     * Obtiene la lista de los nombres de los tours (objetos) extraídos desde el archivo txt.
+     *
+     * @return lista de nombres de los servicios disponibles.
+     */
+    public String[] listarNombres(){
+        obtenerLista();
+        String[] nombreServicios = new String[listaDeServiciosTuristicos.size()];
+
+        for(int i = 0; i < nombreServicios.length; i++){
+            nombreServicios[i] = listaDeServiciosTuristicos.get(i).getNombre();
+        }
+        return nombreServicios;
     }
 
     /**
@@ -96,7 +153,7 @@ public class GestorServicios {
 
     /**
      * Crea servicios de ejemplo para demostrar herencia y polimorfismo.
-     *
+     * Se deja el método disponible desde la entrega de la tarea de la semana 5 en caso de requerir su uso.
      * @return lista con rutas gastronómicas, paseos lacustres y excursiones culturales.
      */
     public ArrayList<ServicioTuristico> crearServicios(){

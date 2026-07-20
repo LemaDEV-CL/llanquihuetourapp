@@ -1,4 +1,4 @@
-package cl.lema.llanquihuetourapp.model;
+package cl.lema.llanquihuetourapp.model.servicios;
 
 /**
 
@@ -57,5 +57,14 @@ public class ExcursionCultural extends ServicioTuristico {
     public void mostrarInformacion() {
         super.mostrarInformacion();
         System.out.println("Lugar histórico: " + lugarHistorico);
+    }
+    /**
+     * Método toString.
+     */
+    @Override
+    public String toString() {
+        return "ExcursionCultural{" +
+                "lugarHistorico='" + lugarHistorico + '\'' +
+                '}';
     }
 }

@@ -1,22 +1,18 @@
-package cl.lema.llanquihuetourapp.model;
+package cl.lema.llanquihuetourapp.model.servicios;
 
 /**
-
  * Representa un paseo lacustre dentro del sistema Llanquihue Tour.
- * <p>
  * Esta clase hereda de ServicioTuristico y agrega como dato propio
  * el tipo de embarcación utilizada en el paseo.
  */
 public class PaseoLacustre extends ServicioTuristico{
 
     /**
-
      * Tipo de embarcación utilizada en el paseo lacustre.
      */
     private String tipoEmbarcacion;
 
     /**
-
      * Constructor con parámetros para crear un paseo lacustre.
      *
      * @param nombre nombre del servicio turístico.
@@ -31,7 +27,6 @@ public class PaseoLacustre extends ServicioTuristico{
     }
 
     /**
-
      * Obtiene el tipo de embarcación del paseo lacustre.
      *
      * @return tipo de embarcación.
@@ -41,7 +36,6 @@ public class PaseoLacustre extends ServicioTuristico{
     }
 
     /**
-
      * Asigna el tipo de embarcación del paseo lacustre.
      *
      * @param tipoEmbarcacion nuevo tipo de embarcación.
@@ -57,5 +51,15 @@ public class PaseoLacustre extends ServicioTuristico{
     public void mostrarInformacion() {
         super.mostrarInformacion();
         System.out.println("Paseo Lacustre: " + tipoEmbarcacion);
+    }
+
+    /**
+     * Método toString.
+     */
+    @Override
+    public String toString() {
+        return "PaseoLacustre{" +
+                "tipoEmbarcacion='" + tipoEmbarcacion + '\'' +
+                '}';
     }
 }

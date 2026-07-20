@@ -1,4 +1,4 @@
-package cl.lema.llanquihuetourapp.model;
+package cl.lema.llanquihuetourapp.model.entidades;
 
 /**
  * Define el comportamiento común de las entidades administradas por la agencia.
